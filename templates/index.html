@@ -1,0 +1,27 @@
+<!doctype html>
+<html charset='utf-8'>
+  <head>
+    <title>LED Strip Control</title>
+     <style>
+      body { margin:20px; }
+      form { padding: 10px; }
+     </style>
+     <link rel='stylesheet' href='http://yui.yahooapis.com/pure/0.6.0/pure-min.css'>
+     <script src='https://code.jquery.com/jquery-git2.min.js'></script>
+     <script src='https://cdnjs.cloudflare.com/ajax/libs/jscolor/2.0.4/jscolor.min.js'></script>
+  </head>
+  <body>
+    <h1>LED Color Settings</h1>
+    <form class='pure-form' method='POST' action='/set'>
+      <fieldset>
+        <div class='pure-control-group'>
+          <label for="lights-color">Color: </label>
+          <input name='color' value='{{current_color}}' class="jscolor {onFineChange:"colorChange(this)"} jscolor-active" id="lights-color">
+        </fieldset>
+        <fieldset>
+          <label for='duration'>Duration: </label>
+          <input type='number' min='1' max='86400' value="60" name='duration' id='duration'>
+        </fieldset>
+        <input type='submit' value='set'>
+  </body>
+</html>
